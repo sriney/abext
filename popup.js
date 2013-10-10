@@ -1,5 +1,5 @@
-// Run our kitten generation script as soon as the document's DOM is ready.
-document.addEventListener('DOMContentLoaded', function () {
+$(document).ready(function(){
+//document.addEventListener('DOMContentLoaded', function () {
 	var link = document.getElementById('currentPage');
 	var ul = document.getElementById('savedLinks');
 	chrome.tabs.query({
@@ -28,11 +28,16 @@ document.addEventListener('DOMContentLoaded', function () {
 		});
 		});
       	//document.body.appendChild(link);
-});
 
-$(document).ready(function(){
-   $('a').click(function(){
+
+   $('body').on('click', 'a', function (){
      chrome.tabs.create({url: $(this).attr('href')});
      return false;
+   });
+
+   $('#clear_all_links').click(function(){
+	chrome.storage.local.set({storedLinks: []},function() {
+		$('ul').empty();
+	});
    });
 });
