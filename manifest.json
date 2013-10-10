@@ -1,0 +1,17 @@
+{
+  "manifest_version": 2,
+
+  "name": "Arcbazar Ideabook",
+  "description": "Browse the web, mark what you like",
+  "version": "1.0",
+
+  "browser_action": {
+    "default_icon": "icon.png",
+    "default_popup": "popup.html"
+  },
+  "permissions": [
+  	"activeTab",
+	"storage",
+	"tabs"
+  ]
+}
