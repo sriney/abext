@@ -29,3 +29,10 @@ document.addEventListener('DOMContentLoaded', function () {
 		});
       	//document.body.appendChild(link);
 });
+
+$(document).ready(function(){
+   $('a').click(function(){
+     chrome.tabs.create({url: $(this).attr('href')});
+     return false;
+   });
+});
